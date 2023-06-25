@@ -52,11 +52,29 @@ Public Const VBNonReservedKeywords As String = _
 "#ExternalSource " & _
 "#Region "
 
+Public Const MSSmallBasicKeywords As String = _
+"And " & _
+"Else " & _
+"ElseIf " & _
+"EndFor " & _
+"EndIf " & _
+"EndSub " & _
+"EndWhile " & _
+"For " & _
+"Goto " & _
+"If " & _
+"Or " & _
+"Step " & _
+"Sub " & _
+"Then " & _
+"To " & _
+"While "
+
 '"Benutzerdefiniert " & _
 
 Public Const VBOperators As String = "= & &= * *= / /= \ \= ^ ^= + += - -= >> >>= << <<= "
 
-Public Const VBKeywords = VBReservedKeywords & VBNonReservedKeywords ' & VBOperators
+Public Const VBKeywords = VBReservedKeywords & VBNonReservedKeywords & MSSmallBasicKeywords ' & VBOperators
 
 Public VBKeywordsUCase As String
 '"AddHandler AddressOf Alias And AndAlso As " & _
@@ -93,11 +111,12 @@ Private m_VBKeyWordsOS As cPrefixTree
 Public Sub KeyWords_Fill()
     If Len(VBKeywordsUCase) = 0 Then VBKeywordsUCase = UCase(VBKeywords)
     Set m_VBKeyWordsCol = New Collection
-    Dim sa() As String: sa = Split(VBKeywordsUCase, " ")
+    Dim kw As String, sa() As String: sa = Split(VBKeywordsUCase, " ")
     Dim i As Long
     For i = LBound(sa) To UBound(sa)
-        If Len(sa(i)) Then
-            m_VBKeyWordsCol.Add sa(i), sa(i)
+        kw = sa(i)
+        If Len(kw) Then
+            If Not MPtr.Col_Contains(m_VBKeyWordsCol, kw) Then m_VBKeyWordsCol.Add kw, kw
         End If
     Next
     KeyWords_FillTree
@@ -128,8 +147,8 @@ Public Sub KeyWords_FillTreeOS()
     Next
 End Sub
 
-Function Max(v1, v2)
-    If v1 > v2 Then Max = v1 Else Max = v2
+Function Max(V1, V2)
+    If V1 > V2 Then Max = V1 Else Max = V2
 End Function
 
 Public Sub KeywordsPTree_ToTextBox(aTB As TextBox)
@@ -153,7 +172,6 @@ End Function
 Public Function IsVBKeyword_OS(aWord As String) As Boolean
     IsVBKeyword_OS = m_VBKeyWordsOS.Exists(aWord)
 End Function
-
 
 Function RndName() As String
     'erzeugt einen zufälligen Namen

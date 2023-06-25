@@ -1,15 +1,81 @@
 VERSION 5.00
 Begin VB.Form Form1 
    Caption         =   "Keyword or Identifier Prefix Tree"
-   ClientHeight    =   9720
+   ClientHeight    =   9615
    ClientLeft      =   120
    ClientTop       =   465
-   ClientWidth     =   20940
+   ClientWidth     =   19455
+   BeginProperty Font 
+      Name            =   "Segoe UI"
+      Size            =   9
+      Charset         =   0
+      Weight          =   400
+      Underline       =   0   'False
+      Italic          =   0   'False
+      Strikethrough   =   0   'False
+   EndProperty
    Icon            =   "Form1.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   9720
-   ScaleWidth      =   20940
+   ScaleHeight     =   9615
+   ScaleWidth      =   19455
    StartUpPosition =   3  'Windows-Standard
+   Begin VB.CommandButton BtnTestTreeOS 
+      Caption         =   "Test TreeOS"
+      Height          =   375
+      Left            =   17760
+      TabIndex        =   14
+      Top             =   120
+      Width           =   1695
+   End
+   Begin VB.CommandButton BtnTestTPTree 
+      Caption         =   "Test TPTree"
+      Height          =   375
+      Left            =   12480
+      TabIndex        =   12
+      Top             =   120
+      Width           =   1695
+   End
+   Begin VB.CommandButton BtnIsEqual 
+      Caption         =   "b1 = b2 = b3 ?"
+      Height          =   375
+      Left            =   8880
+      TabIndex        =   10
+      Top             =   120
+      Width           =   2415
+   End
+   Begin VB.CommandButton BtnTestPTree1 
+      Caption         =   "Test PfxTree"
+      Height          =   375
+      Left            =   7200
+      TabIndex        =   6
+      Top             =   120
+      Width           =   1695
+   End
+   Begin VB.CommandButton BtnTestCol 
+      Caption         =   "Test Col"
+      Height          =   375
+      Left            =   5520
+      TabIndex        =   1
+      Top             =   120
+      Width           =   1695
+   End
+   Begin VB.CommandButton BtnTestInstr 
+      Caption         =   "Test Instr"
+      Height          =   375
+      Left            =   3840
+      TabIndex        =   0
+      Top             =   120
+      Width           =   1695
+   End
+   Begin VB.TextBox TxtUJ 
+      Alignment       =   2  'Zentriert
+      Height          =   285
+      Left            =   2160
+      TabIndex        =   5
+      Text            =   "uj"
+      Top             =   120
+      Width           =   855
+   End
    Begin VB.TextBox Text8 
       BeginProperty Font 
          Name            =   "Consolas"
@@ -21,20 +87,11 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   9015
-      Left            =   18720
+      Left            =   17760
       MultiLine       =   -1  'True
       ScrollBars      =   3  'Beides
       TabIndex        =   15
-      Text            =   "Form1.frx":1782
       Top             =   600
-      Width           =   1695
-   End
-   Begin VB.CommandButton BtnTestTreeOS 
-      Caption         =   "Test TreeOS"
-      Height          =   375
-      Left            =   18720
-      TabIndex        =   14
-      Top             =   120
       Width           =   1695
    End
    Begin VB.TextBox Text7 
@@ -48,21 +105,12 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   9015
-      Left            =   15000
+      Left            =   14160
       MultiLine       =   -1  'True
       ScrollBars      =   3  'Beides
       TabIndex        =   13
-      Text            =   "Form1.frx":178A
       Top             =   600
       Width           =   3615
-   End
-   Begin VB.CommandButton BtnTestTPTree 
-      Caption         =   "Test TPTree"
-      Height          =   375
-      Left            =   13200
-      TabIndex        =   12
-      Top             =   120
-      Width           =   1695
    End
    Begin VB.TextBox Text6 
       BeginProperty Font 
@@ -75,59 +123,12 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   9015
-      Left            =   13200
+      Left            =   12480
       MultiLine       =   -1  'True
       ScrollBars      =   3  'Beides
       TabIndex        =   11
-      Text            =   "Form1.frx":1792
       Top             =   600
       Width           =   1695
-   End
-   Begin VB.TextBox Text2 
-      BeginProperty Font 
-         Name            =   "Consolas"
-         Size            =   9.75
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   9015
-      Left            =   4080
-      MultiLine       =   -1  'True
-      ScrollBars      =   3  'Beides
-      TabIndex        =   3
-      Text            =   "Form1.frx":179A
-      Top             =   600
-      Width           =   1695
-   End
-   Begin VB.CommandButton BtnIsEqual 
-      Caption         =   "b1 = b2 = b3 ?"
-      Height          =   375
-      Left            =   10080
-      TabIndex        =   10
-      Top             =   120
-      Width           =   2415
-   End
-   Begin VB.TextBox Text1 
-      BeginProperty Font 
-         Name            =   "Consolas"
-         Size            =   9.75
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   9015
-      Left            =   120
-      MultiLine       =   -1  'True
-      ScrollBars      =   3  'Beides
-      TabIndex        =   2
-      Text            =   "Form1.frx":17A2
-      Top             =   600
-      Width           =   3855
    End
    Begin VB.TextBox Text5 
       BeginProperty Font 
@@ -140,11 +141,10 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   9015
-      Left            =   9480
+      Left            =   8880
       MultiLine       =   -1  'True
       ScrollBars      =   3  'Beides
       TabIndex        =   8
-      Text            =   "Form1.frx":17AA
       Top             =   600
       Width           =   3615
    End
@@ -159,30 +159,12 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   9015
-      Left            =   7680
+      Left            =   7200
       MultiLine       =   -1  'True
       ScrollBars      =   3  'Beides
       TabIndex        =   7
-      Text            =   "Form1.frx":17B2
       Top             =   600
       Width           =   1695
-   End
-   Begin VB.CommandButton BtnTestPTree1 
-      Caption         =   "Test PfxTree"
-      Height          =   375
-      Left            =   7680
-      TabIndex        =   6
-      Top             =   120
-      Width           =   1695
-   End
-   Begin VB.TextBox TxtUJ 
-      Alignment       =   2  'Zentriert
-      Height          =   285
-      Left            =   1920
-      TabIndex        =   5
-      Text            =   "uj"
-      Top             =   120
-      Width           =   855
    End
    Begin VB.TextBox Text3 
       BeginProperty Font 
@@ -195,38 +177,57 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   9015
-      Left            =   5880
+      Left            =   5520
       MultiLine       =   -1  'True
       ScrollBars      =   3  'Beides
       TabIndex        =   4
-      Text            =   "Form1.frx":17BA
       Top             =   600
       Width           =   1695
    End
-   Begin VB.CommandButton BtnTestCol 
-      Caption         =   "Test Col"
-      Height          =   375
-      Left            =   5880
-      TabIndex        =   1
-      Top             =   120
+   Begin VB.TextBox Text2 
+      BeginProperty Font 
+         Name            =   "Consolas"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   9015
+      Left            =   3840
+      MultiLine       =   -1  'True
+      ScrollBars      =   3  'Beides
+      TabIndex        =   3
+      Top             =   600
       Width           =   1695
    End
-   Begin VB.CommandButton BtnTestInstr 
-      Caption         =   "Test Instr"
-      Height          =   375
-      Left            =   4080
-      TabIndex        =   0
-      Top             =   120
-      Width           =   1695
+   Begin VB.TextBox Text1 
+      BeginProperty Font 
+         Name            =   "Consolas"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   9015
+      Left            =   0
+      MultiLine       =   -1  'True
+      ScrollBars      =   3  'Beides
+      TabIndex        =   2
+      Top             =   600
+      Width           =   3855
    End
    Begin VB.Label Label1 
       AutoSize        =   -1  'True
       Caption         =   "Anzahl Testdurchläufe"
-      Height          =   195
+      Height          =   225
       Left            =   120
       TabIndex        =   9
       Top             =   120
-      Width           =   1590
+      Width           =   1755
    End
 End
 Attribute VB_Name = "Form1"
@@ -244,6 +245,7 @@ Dim bks4() As Boolean
 Dim bks5() As Boolean
 
 Private Sub Form_Load()
+    Me.Caption = Me.Caption & " v" & App.Major & "." & App.Minor & "." & App.Revision
     MKeywords.KeyWords_Fill
     MKwPTree.KeyWords_Fill
     tc = MKeywords.CreateTestCase
@@ -256,6 +258,30 @@ Private Sub Form_Load()
     MKeywords.KeywordsPTree_ToTextBox Text5
     
     Text7.Text = MKwPTree.KwPTree_ToStr
+    
+End Sub
+
+Private Sub Form_Resize()
+    Dim T As Single: T = Text1.Top
+    Dim H As Single: H = Me.ScaleHeight - T
+    Dim px1 As Single: px1 = Screen.TwipsPerPixelX
+    Dim L As Single, W As Single
+    L = L + W - px1: W = Text1.Width
+    If W > 0 And H > 0 Then Text1.Move L, T, W, H
+    L = L + W - px1: W = Text2.Width
+    If W > 0 And H > 0 Then Text2.Move L, T, W, H
+    L = L + W - px1: W = Text3.Width
+    If W > 0 And H > 0 Then Text3.Move L, T, W, H
+    L = L + W - px1: W = Text4.Width
+    If W > 0 And H > 0 Then Text4.Move L, T, W, H
+    L = L + W - px1: W = Text5.Width
+    If W > 0 And H > 0 Then Text5.Move L, T, W, H
+    L = L + W - px1: W = Text6.Width
+    If W > 0 And H > 0 Then Text6.Move L, T, W, H
+    L = L + W - px1: W = Text7.Width
+    If W > 0 And H > 0 Then Text7.Move L, T, W, H
+    L = L + W - px1: W = Me.ScaleWidth - L 'Text8.Width
+    If W > 0 And H > 0 Then Text8.Move L, T, W, H
     
 End Sub
 
